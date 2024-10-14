@@ -1,10 +1,34 @@
-﻿namespace ZooSimulatorLibrary.Zoo.Services.MortuaryServices
+﻿///The MortuaryService class is a crucial component in the zoo simulator, 
+///responsible for cleaning up dead animals from the zoo's collections. 
+///It ensures that the zoo remains up-to-date by removing animals that are no longer alive, 
+///thereby maintaining a realistic simulation environment.
+
+namespace ZooSimulatorLibrary.Zoo.Services.MortuaryServices
 {
+    /// <summary>
+    /// Provides a mortuary service for the zoo simulator, responsible for disposing of dead animals.
+    /// </summary>
     public class MortuaryService : AbstractZooService, IMortuaryService
     {
-        public MortuaryService() { }
-        public MortuaryService(AbstractZoo zoo) : base(zoo) { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MortuaryService"/> class.
+        /// </summary>
+        public MortuaryService()
+        {
+        }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MortuaryService"/> class with the specified zoo.
+        /// </summary>
+        /// <param name="zoo">The zoo associated with this mortuary service.</param>
+        public MortuaryService(AbstractZoo zoo) : base(zoo)
+        {
+        }
+
+        /// <summary>
+        /// Disposes of the bodies of all dead animals in the zoo.
+        /// </summary>
+        /// <exception cref="NullZooException">Thrown if the <see cref="Zoo"/> property is <c>null</c>.</exception>
         public void DisposeBodies()
         {
             if (Zoo == null)
@@ -14,7 +38,10 @@
 
             for (int i = 0; i < Zoo.Animals.Length; i++)
             {
-                var toRemove = Zoo.Animals[i].Where(s => s.HealthMonitorService.IsDead).ToList();
+                var toRemove = Zoo.Animals[i]
+                    .Where(s => s.HealthMonitorService.IsDead)
+                    .ToList();
+
                 Zoo.Animals[i].RemoveRange(toRemove);
 
                 if (Zoo.Animals[i].Count == 0)
@@ -23,7 +50,8 @@
                 }
             }
 
-            Zoo.Animals = Zoo.Animals.Where(s=>s.Count > 0).ToArray();
+            Zoo.Animals = Zoo.Animals.Where(s => s.Count > 0).ToArray();
         }
     }
+
 }

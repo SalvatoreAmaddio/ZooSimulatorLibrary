@@ -1,4 +1,9 @@
-﻿using ZooSimulatorLibrary.Animals.States;
+﻿///The ElephantHealthMonitorService class provides specialized health monitoring for elephants 
+///in the zoo simulator, implementing the unique rules that govern their life state transitions. 
+///By extending GeneralHealthMonitorService and overriding key methods, 
+///it ensures that elephants are managed according to the simulator's specifications.
+
+using ZooSimulatorLibrary.Animals.States;
 using ZooSimulatorLibrary.EventHandlers;
 using ZooSimulatorLibrary.Extentions;
 
