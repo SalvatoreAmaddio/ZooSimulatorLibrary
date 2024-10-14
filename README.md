@@ -58,11 +58,10 @@ changes and scalable for future enhancements
 
 ![ZooSimulator](ProjectStructurePictures/animal_strategy_pattern.PNG)
 
-Interfaces like IHealthService and IHealthMonitorService represent different strategies for managing and monitoring
-animal health. Concrete implementations such as GeneralHealthService, 
-FeedingService, and ElephantHealthMonitorService encapsulate specific behaviors, 
-allowing for dynamic selection and modification of health-related algorithms without 
-altering the animal classes.
+Interfaces like **IHealthService** and **IHealthMonitorService** represent different strategies for managing and monitoring
+animal health. Concrete implementations such as **GeneralHealthService**, **GeneralHealthMonitorService**, 
+and **ElephantHealthMonitorService** encapsulate specific behaviors, 
+allowing for dynamic selection and modification of health-related algorithms without altering the animal classes.
 
 ## State Change Pattern
 
