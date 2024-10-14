@@ -67,6 +67,15 @@ allowing for dynamic selection and modification of health-related algorithms wit
 
 ![ZooSimulator](ProjectStructurePictures/state_change.png)
 
+The **HealthMonitorService** class utilizes the State Pattern to manage the life states of 
+animals (**AliveState**, **DyingState**, **DeadState**). By encapsulating state-specific behaviors 
+within distinct state classes, the HealthMonitorService can dynamically transition an 
+animal's state based on its health levels. This approach ensures that each state 
+manages its own behaviour, enhancing code maintainability and scalability.
+
+The State Pattern is employed within your Zoo Simulator to manage the dynamic life states of 
+animals, ensuring that behaviours are appropriately encapsulated and easily maintainable
+
 ## Zoo Template Pattern
 
 ![ZooSimulator](ProjectStructurePictures/zoo_template_pattern.PNG)
