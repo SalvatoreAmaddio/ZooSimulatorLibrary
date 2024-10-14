@@ -13,3 +13,11 @@
 ## State Change Pattern
 
 ![ZooSimulator](ProjectStructurePictures/state_change.png)
+
+## Zoo Template Pattern
+
+![ZooSimulator](ProjectStructurePictures/zoo_template_pattern.PNG)
+
+## Zoo Strategy Pattern
+
+![ZooSimulator](ProjectStructurePictures/zoo_strategy_pattern.PNG)
