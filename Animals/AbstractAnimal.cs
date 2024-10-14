@@ -12,7 +12,6 @@ namespace ZooSimulatorLibrary.Animals
 
         private float _health;
         public float Health { get => _health; set => UpdateProperty(ref value, ref _health); }
-        public virtual float RecoveryThreshold => 0.1f;
         public virtual float DeathThreshold => 0.0f;
         public IHealthService HealthService { get; set; }
         public IHealthMonitorService HealthMonitorService { get; set; }

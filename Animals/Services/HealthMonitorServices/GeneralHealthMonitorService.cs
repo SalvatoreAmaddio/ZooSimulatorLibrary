@@ -49,22 +49,18 @@ namespace ZooSimulatorLibrary.Animals.Services.HealthMonitorServices
             StateChanged?.Invoke(this, args);
         }
 
-        protected void InvokeStateChangedEvents(StateChangedArgs args) 
+        protected void InvokeStateChangedEvents(StateChangedArgs args)
         {
             StateChanged?.Invoke(this, args);
         }
 
         public virtual void AttemptRecovery()
         {
-            lock (_lockObject)
-            {
-                if (Animal == null) throw new NullAnimalException();
+            if (Animal == null) throw new NullAnimalException();
 
-                if (Animal.Health >= Animal.RecoveryThreshold && IsDying)
-                {
-                    SetState(new AliveState());
-                    Utils.WriteLine("Recovered!", ConsoleColor.Green);
-                }
+            if (Animal.Health >= Animal.DeathThreshold && IsDying)
+            {
+                SetState(new AliveState());
             }
         }
 
@@ -72,18 +68,15 @@ namespace ZooSimulatorLibrary.Animals.Services.HealthMonitorServices
         {
             //When an Animal has a health below its DeathThreshold, it is pronounced dead.
             //Elephants follow a silightly different approach. See the ElephantHealthMonitorService class.
-            lock (_lockObject)
+
+            if (Animal == null) throw new NullAnimalException();
+
+            if (Animal.Health <= Animal.DeathThreshold + Epsilon)
             {
-
-                if (Animal == null) throw new NullAnimalException();
-
-                if (Animal.Health <= Animal.DeathThreshold + Epsilon)
-                {
-                    SetState(new DeadState());
-                }
-
-                return IsDead;
+                SetState(new DeadState());
             }
+
+            return IsDead;
         }
 
         public override void Dispose()

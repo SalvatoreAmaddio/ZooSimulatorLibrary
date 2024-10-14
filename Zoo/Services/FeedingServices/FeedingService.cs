@@ -24,8 +24,6 @@ namespace ZooSimulatorLibrary.Zoo.Services.FeedingServices
                     animal.HealthService.IncreaseHealthBy(values[i]);
                 }
             }
-
-            Console.WriteLine("----------------------");
         }
     }
 }

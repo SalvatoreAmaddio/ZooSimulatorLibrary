@@ -5,7 +5,6 @@ namespace ZooSimulatorLibrary.Animals.Services
     public abstract class AbstractAnimalService : AbstractNotifier, IBaseAnimalService
     {
         public IAnimal? Animal { protected get; set; }
-        protected readonly object _lockObject = new();
         public AbstractAnimalService(IAnimal animal)
         {
             Animal = animal;

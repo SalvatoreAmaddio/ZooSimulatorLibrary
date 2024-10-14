@@ -10,7 +10,6 @@ namespace ZooSimulatorLibrary.Animals
         string DyingImgURI { get; }
         float MaxHealth { get; }
         float Health { get; set; }
-        float RecoveryThreshold { get; }
         float DeathThreshold { get; }
         IHealthMonitorService HealthMonitorService { get; }
         IHealthService HealthService { get; }

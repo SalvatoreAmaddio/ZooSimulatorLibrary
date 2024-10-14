@@ -8,43 +8,33 @@ namespace ZooSimulatorLibrary.Animals.Services.HealthServices
         {
         }
 
-        public virtual void ReduceHealthBy(int percentage)
+        public void IncreaseHealthBy(int percentage)
         {
-            lock (_lockObject)
+            if (Animal == null) throw new NullAnimalException();
+
+            Animal.Health = Math.Min(Animal.Health + Animal.Health * Utils.CalculatePercentage(percentage), Animal.MaxHealth);
+
+            Animal.HealthMonitorService.AttemptRecovery();
+            
+            if (Animal.HealthMonitorService.IsDead)
             {
-                if (Animal == null) throw new NullAnimalException();
-
-                if (Animal.HealthMonitorService.IsDead) return;
-
-                Animal.Health = Math.Max(0, Animal.Health - Animal.Health * Utils.CalculatePercentage(percentage));
-
-                if (Animal.HealthMonitorService.HasDied())
-                {
-                    AnimalDeadWarning();
-                    return;
-                }
-
-                Console.WriteLine($"{Animal}");
+                AnimalDeadWarning();
+                return;
             }
         }
 
-        public void IncreaseHealthBy(int percentage)
+        public virtual void ReduceHealthBy(int percentage)
         {
-            lock (_lockObject)
+            if (Animal == null) throw new NullAnimalException();
+
+            if (Animal.HealthMonitorService.IsDead) return;
+
+            Animal.Health = Math.Max(0, Animal.Health - Animal.Health * Utils.CalculatePercentage(percentage));
+
+            if (Animal.HealthMonitorService.HasDied())
             {
-
-                if (Animal == null) throw new NullAnimalException();
-
-                Animal.HealthMonitorService.AttemptRecovery();
-                if (Animal.HealthMonitorService.IsDead)
-                {
-                    AnimalDeadWarning();
-                    return;
-                }
-
-                Animal.Health = Math.Min(Animal.Health + Animal.Health * Utils.CalculatePercentage(percentage), Animal.MaxHealth);
-
-                Console.WriteLine($"{Animal}");
+                AnimalDeadWarning();
+                return;
             }
         }
 

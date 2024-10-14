@@ -14,6 +14,7 @@ namespace ZooSimulatorLibrary.Death
         private readonly AbstractZoo zoo;
         private CancellationTokenSource _cancellationTokenSource;
         public event GameEndedEventHandler? GameEnded;
+
         public DeathManager(AbstractZoo zoo)
         {
             this.zoo = zoo;
@@ -46,7 +47,15 @@ namespace ZooSimulatorLibrary.Death
 
         public void Run()
         {
-            Task.Run(RunInBackgroundAsync);
+            Task.Factory.StartNew(() => RunInBackgroundAsync(),
+                   TaskCreationOptions.LongRunning)
+                   .ContinueWith(t =>
+                   {
+                       if (t.Exception != null)
+                       {
+                           Console.WriteLine($"Background task failed: {t.Exception.Flatten().Message}");
+                       }
+                   }, TaskContinuationOptions.OnlyOnFaulted);
         }
 
         public void Stop(CancellationTokenSource? cancellationTokenSource = null)
@@ -71,17 +80,17 @@ namespace ZooSimulatorLibrary.Death
         {
             while (!_cancellationTokenSource.Token.IsCancellationRequested)
             {
+                await Task.Delay(TimeSpan.FromSeconds(5), _cancellationTokenSource.Token);
+
+                if (zoo.IsEmpty)
+                {
+                    Console.WriteLine("All dead");
+                    Stop();
+                    InvokeGameEnded();
+                }
                 try
                 {
-                    await Task.Delay(TimeSpan.FromHours(1), _cancellationTokenSource.Token);
                     AffectLifeExpectancy();
-
-                    if (zoo.IsEmpty)
-                    {
-                        Console.WriteLine("All dead");
-                        Stop();
-                        InvokeGameEnded();
-                    }
                 }
                 catch (TaskCanceledException)
                 {
