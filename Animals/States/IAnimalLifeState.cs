@@ -1,4 +1,4 @@
-﻿///Extensibility: Even though the interface is currently empty, it allows for future expansion. 
+﻿///Even though the interface is currently empty, it allows for future expansion. 
 ///We can add common methods or properties that all life states should implement 
 ///as the application evolves.
 namespace ZooSimulatorLibrary.Animals.States
