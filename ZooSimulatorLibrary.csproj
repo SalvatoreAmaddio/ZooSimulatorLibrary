@@ -9,7 +9,7 @@
 		<Description>Backend logic for Zoo Simulator.</Description>
 		<RepositoryUrl>https://github.com/SalvatoreAmaddio/ZooSimulatorLibrary</RepositoryUrl>
 		<PackageLicenseExpression>EPL-2.0</PackageLicenseExpression>
-		<VersionPrefix>1.0.0</VersionPrefix>
+		<VersionPrefix>1.0.1</VersionPrefix>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
