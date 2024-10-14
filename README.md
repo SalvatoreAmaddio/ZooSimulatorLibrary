@@ -2,6 +2,10 @@
 
 # Design Patterns:
 
-## Strategy Pattern
+## Animal Template Pattern
+
+![ZooSimulator](ProjectStructurePictures/animal_template_pattern.png)
+
+## Animal Strategy Pattern
 
 ![ZooSimulator](ProjectStructurePictures/animal_strategy_pattern.PNG)

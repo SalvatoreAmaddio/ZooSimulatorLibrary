@@ -23,8 +23,4 @@
 	    <PackagePath>\</PackagePath>
 	  </None>
 	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="ProjectStructurePictures\" />
-	</ItemGroup>
 </Project>
