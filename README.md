@@ -54,6 +54,11 @@ changes and scalable for future enhancements
 
 ![ZooSimulator](ProjectStructurePictures/animal_template_pattern.png)
 
+The AbstractAnimal class provides a template for initializing health services in its constructor. 
+Derived classes like Monkey, Elephant and Giraffe can override specific steps 
+(e.g., providing custom service implementations) without altering the overall 
+initialization process.
+
 ## Animal Strategy Pattern
 
 ![ZooSimulator](ProjectStructurePictures/animal_strategy_pattern.PNG)
@@ -78,8 +83,17 @@ animals, ensuring that behaviours are appropriately encapsulated and easily main
 
 ## Zoo Template Pattern
 
-![ZooSimulator](ProjectStructurePictures/zoo_template_pattern.PNG)
+![ZooSimulator](ProjectStructurePictures/zoo_template_pattern.PNG):
+
+The AbstractZoo class provides a template for initializing feeding and 
+mortuary services in its constructor. Derived classes like Zoo can override specific steps 
+(e.g., providing custom service implementations) without altering the overall 
+initialization process.
 
 ## Zoo Strategy Pattern
 
 ![ZooSimulator](ProjectStructurePictures/zoo_strategy_pattern.PNG)
+
+Interfaces like **IFeedingService** and **IMortuaryService** define strategies for 
+feeding and mortuary operations, enabling the system to switch or extend these 
+behaviors seamlessly.
