@@ -125,7 +125,7 @@ namespace ZooSimulatorLibrary.Death
             {
                 try
                 {
-                    await Task.Delay(TimeSpan.FromSeconds(5), _cancellationTokenSource.Token);
+                    await Task.Delay(TimeSpan.FromHours(1), _cancellationTokenSource.Token);
 
                     if (zoo.IsEmpty)
                     {
