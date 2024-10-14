@@ -4,4 +4,4 @@
 
 ## Strategy Pattern
 
-![ZooSimulator](ProjectStructurePictures/animal_strategy_pattern.png)
+![ZooSimulator](ProjectStructurePictures/animal_strategy_pattern.PNG)
