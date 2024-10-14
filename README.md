@@ -1,5 +1,5 @@
 # ZooSimulatorLibrary
 
-#Design Patterns:
+# Design Patterns:
 
-##Strategy Pattern
+## Strategy Pattern
