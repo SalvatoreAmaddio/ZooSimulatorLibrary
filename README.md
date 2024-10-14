@@ -12,4 +12,4 @@
 
 ## State Change Pattern
 
-![ZooSimulator](ProjectStructurePictures/state_change.PNG)
+![ZooSimulator](ProjectStructurePictures/state_change.png)
