@@ -19,10 +19,10 @@ Zoo Simulator to efficiently manage complex interactions and evolve with future
 enhancements.
 
 Furthermore, **asynchronous programming** is widely used to run background processes that 
-monitors and handles animal’s life over a given time period.
+monitors and handles animalâ€™s life over a given time period.
 This backend logic has been written in a .NET Core library named **ZooSimulatorLibrary**. It is 
 available through NuGet Package downloadable by writing ZooSimulatorLibrary or by searching 
-the developer’s name: **Salvatore Amaddio**.
+the developerâ€™s name: **Salvatore Amaddio**.
 
 # SOLID:
 The Zoo Simulator meticulously adheres to the SOLID principles, ensuring a well-structured, 
@@ -97,3 +97,6 @@ initialization process.
 Interfaces like **IFeedingService** and **IMortuaryService** define strategies for 
 feeding and mortuary operations, enabling the system to switch or extend these 
 behaviors seamlessly.
+
+## Others
+This library is used in [ZooSimulator GitHub Repository](https://github.com/SalvatoreAmaddio/ZooSimulator)
