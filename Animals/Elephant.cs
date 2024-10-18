@@ -40,7 +40,7 @@ namespace ZooSimulatorLibrary.Animals
         /// Initializes a new instance of the <see cref="Elephant"/> class.
         /// Uses a custom <see cref="ElephantHealthMonitorService"/> for health monitoring.
         /// </summary>
-        public Elephant(IHealthService healthService, IHealthMonitorService healthMonitorService) : base(healthService, healthMonitorService)
+        public Elephant(IHealthService healthService, ElephantHealthMonitorService healthMonitorService) : base(healthService, healthMonitorService)
         {
         }
     }

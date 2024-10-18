@@ -16,23 +16,11 @@ namespace ZooSimulatorLibrary.Animals.DependencyRegistration
             _services.AddTransient<IHealthMonitorService, GeneralHealthMonitorService>();
             _services.AddTransient<IHealthService, GeneralHealthService>();
 
-            _services.AddTransient<Monkey>(sp =>
-                                               new Monkey(sp.GetRequiredService<IHealthService>(),
-                                                       sp.GetRequiredService<IHealthMonitorService>()
-                                                       )
-            );
+            _services.AddTransient<Monkey>();
 
-            _services.AddTransient<Giraffe>(sp =>
-                                                new Giraffe(sp.GetRequiredService<IHealthService>(),
-                                                            sp.GetRequiredService<IHealthMonitorService>()
-                                                            )
-            );
+            _services.AddTransient<Giraffe>();
 
-            _services.AddTransient<Elephant>(sp =>
-                                                new Elephant(sp.GetRequiredService<IHealthService>(),
-                                                             sp.GetRequiredService<ElephantHealthMonitorService>()
-                                                             )
-            );
+            _services.AddTransient<Elephant>();
 
             _provider = _services.BuildServiceProvider();
         }

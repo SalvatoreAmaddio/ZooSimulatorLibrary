@@ -15,13 +15,7 @@ namespace ZooSimulatorLibrary.Zoo.DependencyRegistration
             _services = new();
             _services.AddTransient<IFeedingService, FeedingService>();
             _services.AddTransient<IMortuaryService, MortuaryService>();
-
-            _services.AddTransient<Zoo>(sp =>
-                                               new Zoo(sp.GetRequiredService<IFeedingService>(),
-                                                       sp.GetRequiredService<IMortuaryService>()
-                                                       )
-            );
-
+            _services.AddTransient<Zoo>();
             _provider = _services.BuildServiceProvider();
         }
 
