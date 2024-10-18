@@ -15,7 +15,7 @@ namespace ZooSimulatorLibrary.Animals.Services
         /// <summary>
         /// Gets or sets the animal associated with this service.
         /// </summary>
-        public IAnimal? Animal { get; set; }
+        protected IAnimal? Animal { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AbstractAnimalService"/> class.
@@ -40,6 +40,16 @@ namespace ZooSimulatorLibrary.Animals.Services
         /// Must be implemented by derived classes.
         /// </summary>
         public abstract void Dispose();
+
+        public IAnimal? GetAnimal()
+        {
+            return Animal;
+        }
+
+        public void SetAnimal(IAnimal animal)
+        {
+            Animal = animal;
+        }
     }
 
 }

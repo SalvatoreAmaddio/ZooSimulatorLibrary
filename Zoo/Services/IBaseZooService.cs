@@ -8,6 +8,7 @@
         /// <summary>
         /// Sets the zoo associated with this service.
         /// </summary>
-        AbstractZoo? Zoo { set; }
+        AbstractZoo? GetZoo();
+        void SetZoo(AbstractZoo zoo);
     }
 }

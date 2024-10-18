@@ -8,6 +8,7 @@
         /// <summary>
         /// Sets the animal associated with this service.
         /// </summary>
-        IAnimal? Animal { set; }
+        IAnimal? GetAnimal();
+        void SetAnimal(IAnimal animal);
     }
 }

@@ -10,22 +10,16 @@
         /// Gets or sets the zoo associated with this service.
         /// The getter is protected to allow access within derived classes.
         /// </summary>
-        public AbstractZoo? Zoo { get; set; }
+        protected AbstractZoo? Zoo { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AbstractZooService"/> class with the specified zoo.
-        /// </summary>
-        /// <param name="zoo">The zoo to associate with the service.</param>
-        public AbstractZooService(AbstractZoo zoo)
+        public AbstractZoo? GetZoo()
         {
-            Zoo = zoo;
+            return Zoo;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AbstractZooService"/> class.
-        /// </summary>
-        public AbstractZooService()
+        public void SetZoo(AbstractZoo zoo)
         {
+            Zoo = zoo;
         }
     }
 

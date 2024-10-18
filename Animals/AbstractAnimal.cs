@@ -105,9 +105,9 @@ namespace ZooSimulatorLibrary.Animals
             Id = Interlocked.Increment(ref AutoIncrementID);
 
             HealthService = healthService;
-            HealthService.Animal = this;
+            HealthService.SetAnimal(this);
             HealthMonitorService = healthMonitorService;
-            HealthMonitorService.Animal = this;
+            HealthMonitorService.SetAnimal(this);
         }
 
         /// <summary>

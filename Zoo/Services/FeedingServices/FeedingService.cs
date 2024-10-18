@@ -14,21 +14,6 @@ namespace ZooSimulatorLibrary.Zoo.Services.FeedingServices
     public class FeedingService : AbstractZooService, IFeedingService
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FeedingService"/> class.
-        /// </summary>
-        public FeedingService()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FeedingService"/> class with the specified zoo.
-        /// </summary>
-        /// <param name="zoo">The zoo associated with this feeding service.</param>
-        public FeedingService(AbstractZoo zoo) : base(zoo)
-        {
-        }
-
-        /// <summary>
         /// Feeds all the animals in the zoo by increasing their health.
         /// Each animal's health is increased by a random percentage between 10% and 25%.
         /// </summary>

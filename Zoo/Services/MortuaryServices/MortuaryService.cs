@@ -11,21 +11,6 @@ namespace ZooSimulatorLibrary.Zoo.Services.MortuaryServices
     public class MortuaryService : AbstractZooService, IMortuaryService
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MortuaryService"/> class.
-        /// </summary>
-        public MortuaryService()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MortuaryService"/> class with the specified zoo.
-        /// </summary>
-        /// <param name="zoo">The zoo associated with this mortuary service.</param>
-        public MortuaryService(AbstractZoo zoo) : base(zoo)
-        {
-        }
-
-        /// <summary>
         /// Disposes of the bodies of all dead animals in the zoo.
         /// </summary>
         /// <exception cref="NullZooException">Thrown if the <see cref="Zoo"/> property is <c>null</c>.</exception>

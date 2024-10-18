@@ -58,9 +58,9 @@ namespace ZooSimulatorLibrary.Zoo
         public AbstractZoo(IFeedingService feedingService, IMortuaryService mortuaryService)
         {
             FeedingService = feedingService;
-            feedingService.Zoo = this;
+            feedingService.SetZoo(this);
             MortuaryService = mortuaryService;
-            MortuaryService.Zoo = this;
+            MortuaryService.SetZoo(this);
         }
     }
 
