@@ -15,10 +15,6 @@ namespace ZooSimulatorLibrary.Animals.Services.HealthMonitorServices
         {
         }
 
-        public ElephantHealthMonitorService(IAnimal animal) : base(animal)
-        {
-        }
-
         public override bool HasDied()
         {
             //When an Elephant has a health below or equal its DeathThreshold (70%) it enters in a Dying State.

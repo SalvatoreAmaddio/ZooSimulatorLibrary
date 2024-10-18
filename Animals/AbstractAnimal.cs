@@ -88,35 +88,26 @@ namespace ZooSimulatorLibrary.Animals
         /// </summary>
         public abstract double WalkingSpeed { get; }
 
+        internal AbstractAnimal()
+        {
+            Health = MaxHealth;
+            Id = Interlocked.Increment(ref AutoIncrementID);
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AbstractAnimal"/> class with optional health and health monitor services.
         /// </summary>
         /// <param name="healthService">An optional health service. If null, a default service is provided.</param>
         /// <param name="healthMonitorService">An optional health monitor service. If null, a default service is provided.</param>
-        public AbstractAnimal(IHealthService? healthService = null, IHealthMonitorService? healthMonitorService = null)
+        public AbstractAnimal(IHealthService healthService, IHealthMonitorService healthMonitorService) : this()
         {
             Health = MaxHealth;
             Id = Interlocked.Increment(ref AutoIncrementID);
 
-            if (healthService == null)
-            {
-                HealthService = new GeneralHealthService(this);
-            }
-            else
-            {
-                HealthService = healthService;
-                HealthService.Animal = this;
-            }
-
-            if (healthMonitorService == null)
-            {
-                HealthMonitorService = new GeneralHealthMonitorService(this);
-            }
-            else
-            {
-                HealthMonitorService = healthMonitorService;
-                HealthMonitorService.Animal = this;
-            }
+            HealthService = healthService;
+            HealthService.Animal = this;
+            HealthMonitorService = healthMonitorService;
+            HealthMonitorService.Animal = this;
         }
 
         /// <summary>

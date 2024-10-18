@@ -65,15 +65,6 @@ namespace ZooSimulatorLibrary.Animals.Services.HealthMonitorServices
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneralHealthMonitorService"/> class with the specified animal.
-        /// </summary>
-        /// <param name="animal">The animal to monitor.</param>
-        public GeneralHealthMonitorService(IAnimal animal) : base(animal)
-        {
-            StateChanged += OnStateChanged;
-        }
-
-        /// <summary>
         /// Handles the <see cref="StateChanged"/> event by notifying property changes.
         /// </summary>
         /// <param name="sender">The source of the event.</param>

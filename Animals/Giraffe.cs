@@ -1,4 +1,7 @@
-﻿namespace ZooSimulatorLibrary.Animals
+﻿using ZooSimulatorLibrary.Animals.Services.HealthMonitorServices;
+using ZooSimulatorLibrary.Animals.Services.HealthServices;
+
+namespace ZooSimulatorLibrary.Animals
 {
     /// <summary>
     /// Represents a Giraffe in the zoo simulator.
@@ -30,6 +33,10 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Giraffe"/> class.
         /// </summary>
-        public Giraffe() { }
+        public Giraffe(IHealthService healthService, IHealthMonitorService monitorService) : base(healthService, monitorService) 
+        { 
+        
+        }
+
     }
 }

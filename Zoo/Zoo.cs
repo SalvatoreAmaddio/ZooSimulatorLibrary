@@ -32,7 +32,7 @@ namespace ZooSimulatorLibrary.Zoo
         /// </summary>
         /// <param name="feedingService">An optional feeding service. If <c>null</c>, a default service is provided.</param>
         /// <param name="mortuaryService">An optional mortuary service. If <c>null</c>, a default service is provided.</param>
-        public Zoo(IFeedingService? feedingService = null, IMortuaryService? mortuaryService = null)
+        public Zoo(IFeedingService feedingService, IMortuaryService mortuaryService)
             : base(feedingService, mortuaryService)
         {
         }

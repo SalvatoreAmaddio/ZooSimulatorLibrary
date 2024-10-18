@@ -40,7 +40,7 @@ namespace ZooSimulatorLibrary.Zoo
         /// </summary>
         /// <typeparam name="A">The type of animal to extract.</typeparam>
         /// <returns>An <see cref="ObservableRangeCollection{A}"/> containing the animals of the specified type, or <c>null</c> if none are found.</returns>
-        protected ObservableRangeCollection<A>? ExtractAnimals<A>() where A : IAnimal, new()
+        protected ObservableRangeCollection<A>? ExtractAnimals<A>() where A : class, IAnimal
         {
             var results = Animals?
                 .FirstOrDefault(collection => collection.Any(animal => animal is A))?
@@ -55,27 +55,12 @@ namespace ZooSimulatorLibrary.Zoo
         /// </summary>
         /// <param name="feedingService">An optional feeding service. If <c>null</c>, a default service is provided.</param>
         /// <param name="mortuaryService">An optional mortuary service. If <c>null</c>, a default service is provided.</param>
-        public AbstractZoo(IFeedingService? feedingService = null, IMortuaryService? mortuaryService = null)
+        public AbstractZoo(IFeedingService feedingService, IMortuaryService mortuaryService)
         {
-            if (feedingService == null)
-            {
-                FeedingService = new FeedingService(this);
-            }
-            else
-            {
-                FeedingService = feedingService;
-                FeedingService.Zoo = this;
-            }
-
-            if (mortuaryService == null)
-            {
-                MortuaryService = new MortuaryService(this);
-            }
-            else
-            {
-                MortuaryService = mortuaryService;
-                MortuaryService.Zoo = this;
-            }
+            FeedingService = feedingService;
+            feedingService.Zoo = this;
+            MortuaryService = mortuaryService;
+            MortuaryService.Zoo = this;
         }
     }
 

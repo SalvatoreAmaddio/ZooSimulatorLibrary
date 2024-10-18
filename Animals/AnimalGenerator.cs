@@ -1,7 +1,9 @@
 ﻿///The AnimalGenerator class provides a convenient way to generate collections of animals 
 ///for the zoo simulator. By using asynchronous methods and observable collections, 
 ///it integrates well with WPF applications, ensuring a responsive UI and efficient data binding.
+using Microsoft.Extensions.DependencyInjection;
 using MvvmHelpers;
+using ZooSimulatorLibrary.Animals.DependencyRegistration;
 
 namespace ZooSimulatorLibrary.Animals
 {
@@ -38,7 +40,7 @@ namespace ZooSimulatorLibrary.Animals
         /// A task that represents the asynchronous operation. The task result contains an
         /// <see cref="ObservableRangeCollection{IAnimal}"/> with the generated animal instances.
         /// </returns>
-        public static Task<ObservableRangeCollection<IAnimal>> GenerateAnimalAsync<A>(int n = 5) where A : IAnimal, new()
+        public static Task<ObservableRangeCollection<IAnimal>> GenerateAnimalAsync<A>(int n = 5) where A : class, IAnimal
         {
             return Task.Run(() => GenerateAnimal<A>(n));
         }
@@ -51,13 +53,15 @@ namespace ZooSimulatorLibrary.Animals
         /// </typeparam>
         /// <param name="max">The number of animals to generate.</param>
         /// <returns>An <see cref="ObservableRangeCollection{IAnimal}"/> containing the generated animal instances.</returns>
-        public static ObservableRangeCollection<IAnimal> GenerateAnimal<A>(int max) where A : IAnimal, new()
+        public static ObservableRangeCollection<IAnimal> GenerateAnimal<A>(int max) where A : class, IAnimal
         {
             // Initialize a new collection to hold the animals
             ObservableRangeCollection<IAnimal> animals = new();
             for (int i = 0; i < max; i++)
             {
-                animals.Add(new A());
+                IAnimal? animal = AnimalServices.Provider.GetService<A>();
+                if (animal != null)
+                    animals.Add(animal);
             }
             return animals;
         }

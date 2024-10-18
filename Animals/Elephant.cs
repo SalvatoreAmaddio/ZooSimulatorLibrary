@@ -1,4 +1,5 @@
 ﻿using ZooSimulatorLibrary.Animals.Services.HealthMonitorServices;
+using ZooSimulatorLibrary.Animals.Services.HealthServices;
 
 namespace ZooSimulatorLibrary.Animals
 {
@@ -39,7 +40,7 @@ namespace ZooSimulatorLibrary.Animals
         /// Initializes a new instance of the <see cref="Elephant"/> class.
         /// Uses a custom <see cref="ElephantHealthMonitorService"/> for health monitoring.
         /// </summary>
-        public Elephant() : base(null, new ElephantHealthMonitorService())
+        public Elephant(IHealthService healthService, IHealthMonitorService healthMonitorService) : base(healthService, healthMonitorService)
         {
         }
     }

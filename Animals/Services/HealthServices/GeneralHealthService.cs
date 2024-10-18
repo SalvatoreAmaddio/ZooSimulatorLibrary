@@ -14,14 +14,6 @@ namespace ZooSimulatorLibrary.Animals.Services.HealthServices
     public class GeneralHealthService : AbstractAnimalService, IHealthService
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneralHealthService"/> class with the specified animal.
-        /// </summary>
-        /// <param name="animal">The animal to associate with this health service.</param>
-        public GeneralHealthService(IAnimal animal) : base(animal)
-        {
-        }
-
-        /// <summary>
         /// Increases the animal's health by the specified percentage of its current health.
         /// Caps the health at the animal's maximum health.
         /// </summary>

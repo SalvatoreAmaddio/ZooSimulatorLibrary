@@ -18,15 +18,6 @@ namespace ZooSimulatorLibrary.Animals.Services
         public IAnimal? Animal { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AbstractAnimalService"/> class with the specified animal.
-        /// </summary>
-        /// <param name="animal">The animal to associate with the service.</param>
-        public AbstractAnimalService(IAnimal animal)
-        {
-            Animal = animal;
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="AbstractAnimalService"/> class.
         /// </summary>
         public AbstractAnimalService()

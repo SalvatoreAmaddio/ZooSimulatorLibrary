@@ -1,4 +1,7 @@
-﻿namespace ZooSimulatorLibrary.Animals
+﻿using ZooSimulatorLibrary.Animals.Services.HealthMonitorServices;
+using ZooSimulatorLibrary.Animals.Services.HealthServices;
+
+namespace ZooSimulatorLibrary.Animals
 {
     /// <summary>
     /// Represents a Monkey in the zoo simulator.
@@ -30,6 +33,6 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Monkey"/> class.
         /// </summary>
-        public Monkey() { }
+        public Monkey(IHealthService healthService, IHealthMonitorService monitorService) : base(healthService, monitorService) { }
     }
 }
